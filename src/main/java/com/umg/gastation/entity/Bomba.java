@@ -15,7 +15,9 @@ public class Bomba {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String codigo; // Identificador físico de la bomba
+    private String numero; // Identificador físico de la bomba
+
+    private String tipoCombustible;
 
     @ManyToOne
     @JoinColumn(name = "tanque_id", nullable = false)

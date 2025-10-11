@@ -15,17 +15,18 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+    private Long id;
+
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MovimientoInventario> movimientos;
 
-    private Long id;
-
     private String nombre;
+
+    private String tipo;
 
     private String unidadMedida; // litros, frascos, cajas, etc.
 
-    private double cantidad; // existencias
+    private double cantidadActual; // existencias
 
     private double precioUnitario;
 

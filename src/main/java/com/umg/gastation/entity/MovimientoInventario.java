@@ -20,11 +20,13 @@ public class MovimientoInventario {
     @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
 
-    private String tipo; // "ENTRADA" o "SALIDA"
+    private String tipoMovimiento; // "ENTRADA" o "SALIDA"
 
     private double cantidad;
 
     private LocalDateTime fecha = LocalDateTime.now();
 
-    private String descripcion;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 }

@@ -20,11 +20,17 @@ public class RegistroCombustible {
     @JoinColumn(name = "tanque_id", nullable = false)
     private Tanque tanque;
 
-    private String tipoMovimiento; // "CARGA" o "DESPACHO"
+    private String tipoOperacion; // "CARGA" o "DESPACHO"
 
-    private double cantidad; // litros
+    private double litros; // litros
 
     private LocalDateTime fecha = LocalDateTime.now();
 
-    private String observacion;
+    @ManyToOne
+    @JoinColumn(name = "bomba_id")
+    private Bomba bomba;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 }
