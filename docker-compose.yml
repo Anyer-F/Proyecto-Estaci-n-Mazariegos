@@ -1,18 +1,18 @@
 version: "3.8"
 
 services:
-  postgres:
+  db:
     image: postgres:16
-    container_name: gastation-db-new
+    container_name: gastation_postgres_db
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: gastation_db_new
+      POSTGRES_USER: gastation_user
+      POSTGRES_PASSWORD: gastation_password
+      POSTGRES_DB: gastation_db
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  db_data:
